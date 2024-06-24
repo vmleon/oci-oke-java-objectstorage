@@ -1,0 +1,8 @@
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: backend
+oci:
+  region-name: "REGION_NAME"
+  compartment-ocid: "COMPARTMENT_OCID"

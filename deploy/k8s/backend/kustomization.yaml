@@ -1,0 +1,9 @@
+resources:
+  - service-account.yaml
+  - backend.yaml
+  - backend-svc.yaml
+configMapGenerator:
+  - name: backend-properties
+    files:
+      - application.yaml
+namespace: backend
