@@ -7,9 +7,10 @@ resource "oci_identity_policy" "allow-oke-os-policy" {
   provider       = oci.home
   compartment_id = var.tenancy_ocid
   name           = "${local.oke_policy_name}"
-  description    = "Allow OKE workload to manage Object Storage ${local.oke_policy_name}"
+  description    = "Allow OKE workload to manage OCI resources ${local.oke_policy_name}"
   statements = [
-    "Allow any-user to manage objects in tenancy where all { request.principal.type = 'workload', request.principal.namespace = 'backend', request.principal.service_account = 'oci-service-account', request.principal.cluster_id = '${module.oke.cluster_id}'}"
+    "Allow any-user to manage objects in tenancy where all { request.principal.type = 'workload', request.principal.namespace = 'backend', request.principal.service_account = 'oci-service-account', request.principal.cluster_id = '${module.oke.cluster_id}'}",
+    "Allow any-user to manage generative-ai-family in tenancy where all { request.principal.type = 'workload', request.principal.namespace = 'backend', request.principal.service_account = 'oci-service-account', request.principal.cluster_id = '${module.oke.cluster_id}'}"
   ]
 }
 

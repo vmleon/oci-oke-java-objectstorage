@@ -64,6 +64,10 @@ Test it with:
 curl -k https://LB_PUBLIC_IP/api/os/ns
 ```
 
+```bash
+curl -k https://LB_PUBLIC_IP/api/genai/models
+```
+
 ## Clean up
 
 Delete Kubernetes components
